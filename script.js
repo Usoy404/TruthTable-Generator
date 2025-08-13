@@ -87,7 +87,7 @@
       }
 
       // Identifier or reserved word/constant
-      if (isIdentStart(ch)) {buildozer -v android debug
+      if (isIdentStart(ch)) {
         let j = i + 1;
         while (j < s.length && isIdentPart(s[j])) j++;
         const wordRaw = s.slice(i, j);
