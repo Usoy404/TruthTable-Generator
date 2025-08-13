@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Logic Truth Table Generator</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>Truth Table Generator</h1>
+      <p class="subtitle"> I copy mo nalang ang nasa screen pag dae aram i type.
+        Enter a propositional logic formula. Supports unlimited variables and these operators:</p>
+      <p class="subtitle">palitan mo Row order sa baba naka false and inot bago true nasala kaya. tapos igwa dyan show steps para mas madali at malinaw arugon mo nalang</p>
+      <ul class="ops">
+        <li><strong>Negation</strong>: ¬, ~, !, not</li>
+        <li><strong>Conjunction</strong>: ∧, &, and</li>
+        <li><strong>Disjunction</strong>: ∨, |, or</li>
+        <li><strong>Exclusive OR</strong>: ⊕, ^, xor</li>
+        <li><strong>Implication</strong>: →, ->, =>, implies</li>
+        <li><strong>Biconditional</strong>: ↔, <->, <=>, iff</li>
+        <li><strong>Constants</strong>: true, false, T, F, 1, 0</li>
+      </ul>
+
+      <form id="expr-form">
+        <label for="expression" class="label">Logical expression</label>
+        <div class="input-row">
+          <input id="expression" name="expression" type="text" required
+                 placeholder="(A ∧ B) → (¬C ⊕ D) ↔ E" />
+          <button type="submit">Generate</button>
+        </div>
+        <div class="options-row">
+          <label><input type="checkbox" id="useTF" checked /> Show T/F (uncheck for 1/0)</label>
+          <label><input type="checkbox" id="showRowIndex" /> Show row #</label>
+          <label><input type="checkbox" id="showSteps" /> Show steps (subexpressions)</label>
+          <label>Row order:
+            <select id="rowOrder">
+              <option value="F_FIRST">F → T</option>
+              <option value="T_FIRST">T → F</option>
+            </select>
+          </label>
+        </div>
+        <p class="hint">Tip:Mag adal ka man ngani. </p>
+      </form>
+
+      <div id="error" class="error" hidden></div>
+
+      <div id="summary" class="summary" hidden></div>
+
+      <div id="table-container" class="table-container" aria-live="polite"></div>
+    </main>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
