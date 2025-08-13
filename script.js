@@ -368,18 +368,17 @@
       const env = Object.create(null);
       for (let j = 0; j < vars.length; j++) {
         const bit = (i >> (vars.length - j - 1)) & 1;
-        const val = rowOrder === 'T_FIRST' ? (bit === 0) : (bit === 1);
+        const val = rowOrder === 'F_FIRST' ? (bit === 1) : (bit === 0);
         env[vars[j]] = val;
       }
       let value;
       try {
         if (showSteps) {
-          // Ensure AST is built
           if (!ast) ast = rpnToAst(rpn);
         }
         value = evalRPN(rpn, env);
       } catch (e) {
-        value = false; // Should not happen here if parsing succeeded
+        value = false;
       }
 
       const tr = document.createElement('tr');
